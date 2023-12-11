@@ -5,18 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section Scripts {
+    <script src="ruta-a-tu-libreria-sweetalert2"></script> <!-- Asegúrate de incluir la ruta correcta a SweetAlert2 -->
+
     <script>
         $(document).ready(function () {
             // Verifica si hay un mensaje de éxito en TempData
             var successMessage = '@TempData["SuccessMessage"]';
 
             if (successMessage) {
-                // Muestra la alerta de éxito
-                alert(successMessage);
+                // Muestra la alerta de éxito con SweetAlert2
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Éxito',
+                    text: successMessage,
+                });
             }
         });
     </script>
 }
+
 <link rel="stylesheet" href="/css/roles/Roles.css">
 <link rel="stylesheet" href="~/styleUsu/style.css" asp-append-version="true" />
 <script src="https://kit.fontawesome.com/f583145028.js" crossorigin="anonymous"></script>
