@@ -43,7 +43,7 @@ body {
     height: 100%;
     width: 250px;
     padding: 10px 3px 10px 3px;
-    background-color: #e2d4ff;
+    background-color: #6e6e6e;
     box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
     transition: left 0.3s;
 }
@@ -75,13 +75,13 @@ iframe {
     box-shadow: 20px;
 }
 
-    #toggle-btn:active {
-        transform: scale(0.9);
-        transition: transform 0.1s ease;
-    }
+#toggle-btn:active {
+    transform: scale(0.9);
+    transition: transform 0.1s ease;
+}
 
 .navbar-matissa {
-    background-color: #444444;
+    background-color: #4d4d4d;
     padding-top: 15px;
 }
 
@@ -91,16 +91,58 @@ iframe {
 }
 
 .cerrar-sesion {
-    background-color: #232323;
+    
 }
 
 .letra-merienda {
     font-family: 'Merienda';
 }
 
-
 .btns-sidebar {
     background-color: #a7e3e1;
     border-radius: 30px;
     margin: 3px;
+    color: black;
+    list-style: none;
+    cursor: pointer;
+}
+
+.sidebar ul li a {
+    display: block;
+    text-decoration: none;
+    
+}
+
+.sidebar ul ul {
+    display: none;
+    transition: 0.3s;
+}
+
+.sidebar ul ul li {
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar ul li:hover > ul {
+    transition: 0.3s;
+    display: block;
+}
+
+.btns-treeview {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btns-treeview:hover {
+    color: lightgray;
+    transition: 0.3s;
+    margin: 0px 10px;
+}
+
+.btns-sidebar:hover {
+    background-color: #3cc3bd;
+    color: white;
+    transition: 0.2s;
+    padding: 10px 15px;
 }

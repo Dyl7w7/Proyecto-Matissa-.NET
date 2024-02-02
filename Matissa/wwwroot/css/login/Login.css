@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 
 body {
-    background-color: #d7f1f0;
+    background-color: white;
 }
 
 .conteiner {
@@ -37,10 +37,8 @@ body {
     height: auto;
     padding: 10px 10px 10px 10px;
     background: #ffffff;
+    border-style: hidden;
     color: #000000;
-    border-color: #006e8c;
-    border-width: 1px;
-    border-style: solid;
     border-radius: 0px 15px 15px 0px;
     font-family: "Quicksand";
     font-weight: bold;
