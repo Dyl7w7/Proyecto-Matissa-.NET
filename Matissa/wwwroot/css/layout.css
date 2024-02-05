@@ -113,6 +113,10 @@ iframe {
     
 }
 
+.sidebar ul {
+    text-align: left;
+}
+
 .sidebar ul ul {
     display: none;
     transition: 0.3s;
