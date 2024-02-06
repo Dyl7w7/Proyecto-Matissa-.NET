@@ -5,17 +5,25 @@ body {
     background-color: white;
 }
 
-@media screen and (max-width: 750px) {
-    .conteiner {
-        display: block;
-    }
-}
+
 
 .conteiner {
     margin: 10% auto auto auto;
     width: auto;
     max-width: 60%;
     display: flex;
+}
+
+@media screen and (max-width: 750px) {
+    .conteiner {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .conteiner {
+        display: block;
+    }
 }
 
 
