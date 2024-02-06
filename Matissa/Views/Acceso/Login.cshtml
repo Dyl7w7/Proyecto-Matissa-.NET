@@ -16,18 +16,17 @@
 
 </head>
 <body>
-    
+
     <div class="row mt-5">
-        
-        <div class="col-sm-4 offset-sm-4" >
+
+        <div class="col-sm-4 offset-sm-4">
             <form method="post" asp-controller="Acceso" asp-action="Login">
                 <div class="conteiner">
                     <div class="cont-registro" style="box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.60);">
                         <div class="links">
                             <div class="separador">
-                                
                             </div>
-                            
+
                         </div>
                         <div class="form">
                             <h1>Bienvenidos a Matissa</h1>
@@ -39,21 +38,21 @@
                             }
                             <div class="fields">
                                 <input type="text" name="username" id="usuario" placeholder="Usuario">
-                                <div id="usuarioAlert" class="alert alert-danger" style="display: none; color:red;">
+                                <div id="usuarioAlert" class="alert alert-danger" style="display: none; color:#CD5C5C;  font-family: '', cursive;">
                                     <strong>Error!</strong> Usuario es requerido.
                                 </div>
                                 <input type="password" name="password" id="password" placeholder="Contraseña">
-                                <div id="passwordAlert" class="alert alert-danger" style="display: none; color:red;">
+                                <div id="passwordAlert" class="alert alert-danger" style="display: none; color:#CD5C5C;  font-family: '', cursive;">
                                     <strong>Error!</strong> Contraseña es requerida.
                                 </div>
                             </div>
 
                             <div class="button">
-                            <input type="submit" value="Ingresar" class="ingresar">
+                                <input type="submit" value="Ingresar" class="ingresar">
 
                             </div>
                             @* <div class="restore-link">
-                                <a href="CambiarContraseña">Cambiar Contraseña</a>
+                            <a href="CambiarContraseña">Cambiar Contraseña</a>
                             </div> *@
                         </div>
                     </div>

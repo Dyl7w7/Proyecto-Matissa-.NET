@@ -12,12 +12,6 @@ body {
     display: flex;
 }
 
-@media screen and (max-width: 750px) {
-    .conteiner {
-        display: block;
-    }
-}
-
 
 .cont-registro {
     width: 100%;
@@ -42,7 +36,7 @@ body {
     height: auto;
     padding: 10px 10px 10px 10px;
     background: #ffffff;
-    border-style: hidden;
+    /*border-style: hidden;*/
     color: #000000;
     border-radius: 0px 15px 15px 0px;
     font-family: "Quicksand";
@@ -52,19 +46,20 @@ body {
     text-align: left;
 }
 
-.separador {
+/*.separador {
     text-decoration: none;
-}
+}*/
+
 
 .links a {
     font-size: 18px;
     color: white;
 }
 
-.links a:hover {
-    color: rgb(131, 0, 131);
-    transition: 0.5s;
-}
+    .links a:hover {
+        color: rgb(131, 0, 131);
+        transition: 0.5s;
+    }
 
 .links {
     padding: 20px 40px 0px 40px;
@@ -83,35 +78,35 @@ h1 {
     text-align: center;
 }
 
-.fields input {
-    width: 65%;
-    margin-top: 40px;
-    background: none;
-    border: 0;
-    border-bottom: 1px solid white;
-    text-decoration-color: white;
-    color: white;
-    font-family: "Quicksand";
-    font-weight: bold;
-    font-size: 15px;
-    height: 25px;
-}
+    .fields input {
+        width: 65%;
+        margin-top: 40px;
+        background: none;
+        border: 0;
+        border-bottom: 1px solid white;
+        text-decoration-color: white;
+        color: white;
+        font-family: "Quicksand";
+        font-weight: bold;
+        font-size: 15px;
+        height: 25px;
+    }
 
-.fields input::placeholder {
-    color: white;
-    font-family: "Quicksand";
-    font-weight: bold;
-    font-size: 15px;
-}
+        .fields input::placeholder {
+            color: white;
+            font-family: "Quicksand";
+            font-weight: bold;
+            font-size: 15px;
+        }
 
-.fields input:focus {
-    outline: none;
-}
+        .fields input:focus {
+            outline: none;
+        }
 
-.fields input:hover {
-    border-bottom: 1px solid rgb(131, 0, 131);
-    transition: 0.5s;
-}
+        .fields input:hover {
+            border-bottom: 1px solid rgb(131, 0, 131);
+            transition: 0.5s;
+        }
 
 .button {
     margin-top: 50px;
@@ -138,16 +133,16 @@ h1 {
     text-align: center;
 }
 
-.restore-link a {
-    font-size: 18px;
-    color: white;
-    text-decoration: underline;
-}
+    .restore-link a {
+        font-size: 18px;
+        color: white;
+        text-decoration: underline;
+    }
 
-.restore-link a:hover {
-    color: rgb(131, 0, 131);
-    transition: 0.5s;
-}
+        .restore-link a:hover {
+            color: rgb(131, 0, 131);
+            transition: 0.5s;
+        }
 
 .logo {
     text-align: center;
