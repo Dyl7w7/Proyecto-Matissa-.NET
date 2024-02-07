@@ -3,9 +3,9 @@
     color: white;
     font-family: "Merienda";
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-bottom: 10%;
+    width:100%;
+    padding-top: 1%;
+    margin-bottom: 1%;
     border: 1px solid gray;
 }
 

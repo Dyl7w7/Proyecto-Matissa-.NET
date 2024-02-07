@@ -15,9 +15,9 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid p-5 mb-5">
     <div class="row">
-        <div class="col-6">
+        <div class="label-buscar col-12">
             <form asp-action="Index" asp-controller="VentaServicios" method="get">
                 <div class="form-floating">
                     <input type="text" class="form-control rounded-pill buscar-venta" id="searchString" name="searchString" placeholder="">
@@ -27,15 +27,25 @@
                 <!--<input type="submit" value="Buscar" class="btn btn-primary" style="display: none;" />-->
             </form>
         </div>
-        <div class="col-6">
+        <div class="col-4">
             <a asp-action="Create" class="crear-venta">
-                <p class="rounded-pill" style="padding-top: 8px;">Crear venta<i class="fa-regular fa-square-plus" style="font-size: 30px; margin-left:10%; margin-top:5px; "></i></p>
+                <p class="rounded-pill" style="padding-top: 8px;">Generar reporte de ventas<i class="fa-regular fa-square-plus" style="font-size: 30px; margin-left:10%; margin-top:5px; "></i></p>
+            </a>
+        </div>
+        <div class="col-4">
+            <a asp-action="Create" class="crear-venta">
+                <p class="rounded-pill" style="padding-top: 8px;">Consultar venta de servicios<i class="fa-regular fa-square-plus" style="font-size: 30px; margin-left:10%; margin-top:5px; "></i></p>
+            </a>
+        </div>
+        <div class="col-4">
+            <a asp-action="Create" class="crear-venta">
+                <p class="rounded-pill" style="padding-top: 8px;">Consultar venta de pedidos<i class="fa-regular fa-square-plus" style="font-size: 30px; margin-left:10%; margin-top:5px; "></i></p>
             </a>
         </div>
     </div>
 </div>
 
-<table class="table table-bordered" style="width: 95%; margin-left: 25px;">
+<table class="table table-bordered p-3" style="width: 95%; margin-left: 25px;">
     <thead>
         <tr>
             <th>
