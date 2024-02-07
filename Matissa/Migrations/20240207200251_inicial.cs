@@ -94,12 +94,29 @@ namespace Matissa.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "proveedor",
+                columns: table => new
+                {
+                    idProveedor = table.Column<int>(type: "int", nullable: false),
+                    tipoProveedor = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    nombreProveedor = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    contacto = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    dirección = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    teléfono = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    estado = table.Column<byte>(type: "tinyint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__proveedo__A3FA8E6B213E0218", x => x.idProveedor);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "rol",
                 columns: table => new
                 {
                     idRol = table.Column<int>(type: "int", nullable: false),
                     nombreRol = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    estado = table.Column<byte>(type: "tinyint", nullable: true)
+                    estado = table.Column<byte>(type: "tinyint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -107,16 +124,19 @@ namespace Matissa.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "tipoServicio",
+                name: "servicio",
                 columns: table => new
                 {
-                    idTipoServicio = table.Column<int>(type: "int", nullable: false),
-                    nombre = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    idServicio = table.Column<int>(type: "int", nullable: false),
+                    nombreServicio = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    descripción = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
+                    duración = table.Column<int>(type: "int", nullable: false),
+                    precio = table.Column<double>(type: "float", nullable: false),
                     estado = table.Column<byte>(type: "tinyint", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK__tipoServ__278616767C8DCAAE", x => x.idTipoServicio);
+                    table.PrimaryKey("PK__servicio__CEB98119B2088B0F", x => x.idServicio);
                 });
 
             migrationBuilder.CreateTable(
@@ -160,6 +180,38 @@ namespace Matissa.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "detalleCompra",
+                columns: table => new
+                {
+                    idDetalleCompra = table.Column<int>(type: "int", nullable: false),
+                    idCompra = table.Column<int>(type: "int", nullable: false),
+                    idProducto = table.Column<int>(type: "int", nullable: false),
+                    idProveedor = table.Column<int>(type: "int", nullable: false),
+                    precioUnitario = table.Column<double>(type: "float", nullable: false),
+                    cantidad = table.Column<int>(type: "int", nullable: false),
+                    costoTotalUnitario = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__detalleC__62C252C1B96B1F27", x => x.idDetalleCompra);
+                    table.ForeignKey(
+                        name: "FK__detalleCo__idCom__59FA5E80",
+                        column: x => x.idCompra,
+                        principalTable: "compra",
+                        principalColumn: "idCompra");
+                    table.ForeignKey(
+                        name: "FK__detalleCo__idPro__5AEE82B9",
+                        column: x => x.idProducto,
+                        principalTable: "producto",
+                        principalColumn: "idProducto");
+                    table.ForeignKey(
+                        name: "FK__detalleCo__idPro__5BE2A6F2",
+                        column: x => x.idProveedor,
+                        principalTable: "proveedor",
+                        principalColumn: "idProveedor");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "rolXPermiso",
                 columns: table => new
                 {
@@ -191,7 +243,7 @@ namespace Matissa.Migrations
                     correo = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
                     contraseña = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
                     estado = table.Column<byte>(type: "tinyint", nullable: false),
-                    idRol = table.Column<int>(type: "int", nullable: true)
+                    idRol = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -200,75 +252,8 @@ namespace Matissa.Migrations
                         name: "FK__usuario__idRol__3B75D760",
                         column: x => x.idRol,
                         principalTable: "rol",
-                        principalColumn: "idRol");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "servicio",
-                columns: table => new
-                {
-                    idServicio = table.Column<int>(type: "int", nullable: false),
-                    nombreServicio = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    descripción = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
-                    duración = table.Column<int>(type: "int", nullable: false),
-                    precio = table.Column<double>(type: "float", nullable: false),
-                    estado = table.Column<byte>(type: "tinyint", nullable: false),
-                    idTipoServicio = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK__servicio__CEB98119B2088B0F", x => x.idServicio);
-                    table.ForeignKey(
-                        name: "FK__servicio__idTipo__4CA06362",
-                        column: x => x.idTipoServicio,
-                        principalTable: "tipoServicio",
-                        principalColumn: "idTipoServicio");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ventaServicio",
-                columns: table => new
-                {
-                    idVentaServicio = table.Column<int>(type: "int", nullable: false),
-                    idCita = table.Column<int>(type: "int", nullable: false),
-                    valorVenta = table.Column<double>(type: "float", nullable: false),
-                    fechaVenta = table.Column<DateTime>(type: "date", nullable: false),
-                    formaPago = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    estado = table.Column<byte>(type: "tinyint", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK__ventaSer__59B03D9C75C79989", x => x.idVentaServicio);
-                    table.ForeignKey(
-                        name: "FK__ventaServ__idCit__68487DD7",
-                        column: x => x.idCita,
-                        principalTable: "cita",
-                        principalColumn: "idCita");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "detallePedido",
-                columns: table => new
-                {
-                    idDetallePedido = table.Column<int>(type: "int", nullable: false),
-                    idProducto = table.Column<int>(type: "int", nullable: false),
-                    idPedido = table.Column<int>(type: "int", nullable: false),
-                    cantidadProducto = table.Column<int>(type: "int", nullable: false),
-                    precioUnitario = table.Column<double>(type: "float", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK__detalleP__610F0056E942CCDA", x => x.idDetallePedido);
-                    table.ForeignKey(
-                        name: "FK__detallePe__idPed__628FA481",
-                        column: x => x.idPedido,
-                        principalTable: "pedido",
-                        principalColumn: "idPedido");
-                    table.ForeignKey(
-                        name: "FK__detallePe__idPro__619B8048",
-                        column: x => x.idProducto,
-                        principalTable: "producto",
-                        principalColumn: "idProducto");
+                        principalColumn: "idRol",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -307,6 +292,52 @@ namespace Matissa.Migrations
                         principalColumn: "idServicio");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ventaServicio",
+                columns: table => new
+                {
+                    idVentaServicio = table.Column<int>(type: "int", nullable: false),
+                    idCita = table.Column<int>(type: "int", nullable: false),
+                    valorVenta = table.Column<double>(type: "float", nullable: true),
+                    fechaVenta = table.Column<DateTime>(type: "date", nullable: true),
+                    formaPago = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
+                    estado = table.Column<byte>(type: "tinyint", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__ventaSer__59B03D9C75C79989", x => x.idVentaServicio);
+                    table.ForeignKey(
+                        name: "FK__ventaServ__idCit__68487DD7",
+                        column: x => x.idCita,
+                        principalTable: "cita",
+                        principalColumn: "idCita");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "detallePedido",
+                columns: table => new
+                {
+                    idDetallePedido = table.Column<int>(type: "int", nullable: false),
+                    idProducto = table.Column<int>(type: "int", nullable: false),
+                    idPedido = table.Column<int>(type: "int", nullable: false),
+                    cantidadProducto = table.Column<int>(type: "int", nullable: false),
+                    precioUnitario = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__detalleP__610F0056E942CCDA", x => x.idDetallePedido);
+                    table.ForeignKey(
+                        name: "FK__detallePe__idPed__628FA481",
+                        column: x => x.idPedido,
+                        principalTable: "pedido",
+                        principalColumn: "idPedido");
+                    table.ForeignKey(
+                        name: "FK__detallePe__idPro__619B8048",
+                        column: x => x.idProducto,
+                        principalTable: "producto",
+                        principalColumn: "idProducto");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_cita_idCliente",
                 table: "cita",
@@ -326,6 +357,21 @@ namespace Matissa.Migrations
                 name: "IX_detalleCita_idServicio",
                 table: "detalleCita",
                 column: "idServicio");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_detalleCompra_idCompra",
+                table: "detalleCompra",
+                column: "idCompra");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_detalleCompra_idProducto",
+                table: "detalleCompra",
+                column: "idProducto");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_detalleCompra_idProveedor",
+                table: "detalleCompra",
+                column: "idProveedor");
 
             migrationBuilder.CreateIndex(
                 name: "IX_detallePedido_idPedido",
@@ -353,11 +399,6 @@ namespace Matissa.Migrations
                 column: "idRol");
 
             migrationBuilder.CreateIndex(
-                name: "IX_servicio_idTipoServicio",
-                table: "servicio",
-                column: "idTipoServicio");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_usuario_idRol",
                 table: "usuario",
                 column: "idRol");
@@ -371,10 +412,10 @@ namespace Matissa.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "compra");
+                name: "detalleCita");
 
             migrationBuilder.DropTable(
-                name: "detalleCita");
+                name: "detalleCompra");
 
             migrationBuilder.DropTable(
                 name: "detallePedido");
@@ -395,6 +436,12 @@ namespace Matissa.Migrations
                 name: "servicio");
 
             migrationBuilder.DropTable(
+                name: "compra");
+
+            migrationBuilder.DropTable(
+                name: "proveedor");
+
+            migrationBuilder.DropTable(
                 name: "pedido");
 
             migrationBuilder.DropTable(
@@ -408,9 +455,6 @@ namespace Matissa.Migrations
 
             migrationBuilder.DropTable(
                 name: "cita");
-
-            migrationBuilder.DropTable(
-                name: "tipoServicio");
 
             migrationBuilder.DropTable(
                 name: "cliente");
