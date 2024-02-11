@@ -13,7 +13,7 @@ using Matissa.Model;
 
 namespace Configuracion2._0.Controllers
 {
-    [Authorize(Roles = "Administrador,Usuario")]
+    [Authorize(Roles = "Administrador")]
 
     public class UsuariosController : Controller
     {

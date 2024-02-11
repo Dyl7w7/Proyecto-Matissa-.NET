@@ -78,27 +78,21 @@
                 </li>
                 
             }
-            
-            @if (User.IsInRole("Administrador"))
-            {
-                
-            }
-
-            @if (User.IsInRole("Administrador") || User.IsInRole("Usuario") || User.IsInRole("Clientes"))
-            {
+           @*  @if (User.IsInRole("Administrador") || User.IsInRole("Usuario") || User.IsInRole("Clientes"))
+            { *@
                 @* <li class="nav-item ">
                     <a class="nav-link btns-sidebar fw-bolder" style="box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);" asp-area="" asp-action="Index" asp-controller="Citums"><i class="fa-solid fa-calendar-days fa-xl" style="margin-right: 5px;"></i>  &nbsp;Citas</a>
                 </li> *@
-            }
+           @*  } *@
 
-            @if (User.IsInRole("Administrador") || User.IsInRole("Usuario"))
+            @* @if (User.IsInRole("Administrador") || User.IsInRole("Usuario"))
             {
-                @* <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link btns-sidebar fw-bolder" style="box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);" asp-action="Index" asp-controller="Servicios" asp-area=""><i class="fa-solid fa-scissors fa-xl" style="margin-right: 5px;"></i> &nbsp;Servicios</a>
-                </li> *@
-            }
+                </li>
+            } *@
 
-            @if (User.IsInRole("Administrador") || User.IsInRole("Usuario"))
+            @if (User.IsInRole("Administrador") || User.IsInRole("Clientes"))
             {
                 <li class="nav-item">
                     <p class="nav-link btns-sidebar" style="box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);">
@@ -134,7 +128,7 @@
                 </li> *@
             }
 
-            @if (User.IsInRole("Administrador") || User.IsInRole("Usuario"))
+            @if (User.IsInRole("Administrador") || User.IsInRole("Clientes"))
             {
                 <li class="nav-item">
                     <p class="nav-link btns-sidebar" style="box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);">
@@ -170,7 +164,7 @@
                 </li> *@
             }
 
-            @if (User.IsInRole("Administrador") || User.IsInRole("Usuario"))
+            @if (User.IsInRole("Administrador") || User.IsInRole("Clientes"))
             {
                 <li class="nav-item">
                     <p class="nav-link btns-sidebar" style="box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);">

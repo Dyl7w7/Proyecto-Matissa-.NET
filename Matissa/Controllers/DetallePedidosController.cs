@@ -6,9 +6,11 @@ using Matissa.Models;
 
 using X.PagedList;
 using Microsoft.CodeAnalysis.Operations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Matissa.Controllers
 {
+    [Authorize(Roles = "Administrador,Clientes")]
     public class DetallePedidosController : Controller
     {
         private readonly dbMatissaNETContext _context;

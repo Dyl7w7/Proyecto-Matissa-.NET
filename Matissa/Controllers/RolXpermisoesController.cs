@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Matissa.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class RolXpermisoesController : Controller
     {
         private readonly dbMatissaNETContext _context;

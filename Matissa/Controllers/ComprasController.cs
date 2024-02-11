@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using matissa.Models;
 using X.PagedList;
 using Matissa.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace matissa.Controllers
 {
+    [Authorize(Roles = "Administrador,Clientes")]
     public class ComprasController : Controller
     {
         private readonly dbMatissaNETContext _context;

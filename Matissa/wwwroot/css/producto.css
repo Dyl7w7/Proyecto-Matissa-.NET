@@ -19,8 +19,8 @@ body{
     font-family: "Merienda";
     text-align: center;
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 1%;
+    /*padding-bottom: 20px;*/
     margin-bottom: 1%;
     border: 1px solid gray;
 }
@@ -31,8 +31,9 @@ body{
     font-family: "Merienda";
     text-align: center;
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 1%;
+    /*padding-bottom: 20px;*/
+    margin-bottom: 1%;
     border: 1px solid gray;
 }
 

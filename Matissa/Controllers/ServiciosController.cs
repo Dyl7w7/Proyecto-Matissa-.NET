@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Matissa.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Matissa.Controllers
 {
+    [Authorize(Roles = "Administrador,Clientes")]
     public class ServiciosController : Controller
     {
         private readonly dbMatissaNETContext _context;

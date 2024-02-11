@@ -9,9 +9,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using X.PagedList;
 using Matissa.Models;
 using matissa.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace matissa.Controllers
 {
+    [Authorize(Roles = "Administrador,Clientes")]
     public class ProductoesController : Controller
     {
         private readonly dbMatissaNETContext _context;
