@@ -7,17 +7,17 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<div class="container text-center">
-    <link rel="stylesheet" href="~/css/citas/Citums.css">
-    <div class="container-fluid titulo-citas">
-        <div class="row">
+<div class="col-12 container detalle text-center">
+    <link rel="stylesheet" href="~/css/servicios/servicios.css">
+    <div class="col-12  container-fluid ">
+        <div class="row titulo-detalle">
             <div class="col-12">
                 <h1>Detalle de Servicios</h1>
             </div>
         </div>
     </div>
   
-    <div class="row justify-content-center">
+    <div class="row justify-content-center cuadro">
         <div class="col-md-6">
             <table class="table table-bordered">
                 <tbody>
@@ -41,10 +41,7 @@
                         <th>@Html.DisplayNameFor(model => model.Estado)</th>
                         <td>@Html.DisplayFor(model => model.Estado)</td>
                     </tr>
-                    <tr>
-                        <th>@Html.DisplayNameFor(model => model.IdTipoServicioNavigation)</th>
-                        <td>@Html.DisplayFor(model => model.IdTipoServicioNavigation.IdTipoServicio)</td>
-                    </tr>
+
 
                 </tbody>
             </table>

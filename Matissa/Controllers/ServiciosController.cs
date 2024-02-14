@@ -21,7 +21,7 @@ namespace Matissa.Controllers
         // GET: Servicios
         public async Task<IActionResult> Index()
         {
-            var dbMatissaNETContext = _context.Servicios.Include(s => s.IdTipoServicioNavigation);
+            var dbMatissaNETContext = _context.Servicios;
             return View(await dbMatissaNETContext.ToListAsync());
         }
 
@@ -34,7 +34,6 @@ namespace Matissa.Controllers
             }
 
             var servicio = await _context.Servicios
-                .Include(s => s.IdTipoServicioNavigation)
                 .FirstOrDefaultAsync(m => m.IdServicio == id);
             if (servicio == null)
             {
@@ -47,7 +46,6 @@ namespace Matissa.Controllers
         // GET: Servicios/Create
         public IActionResult Create()
         {
-            ViewData["IdTipoServicio"] = new SelectList(_context.TipoServicios, "IdTipoServicio", "IdTipoServicio");
             return View();
         }
 
@@ -56,7 +54,7 @@ namespace Matissa.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdServicio,NombreServicio,Descripción,Duración,Precio,Estado,IdTipoServicio")] Servicio servicio)
+        public async Task<IActionResult> Create([Bind("IdServicio,NombreServicio,Descripción,Duración,Precio,Estado")] Servicio servicio)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +62,6 @@ namespace Matissa.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdTipoServicio"] = new SelectList(_context.TipoServicios, "IdTipoServicio", "IdTipoServicio", servicio.IdTipoServicio);
             return View(servicio);
         }
 
@@ -81,7 +78,6 @@ namespace Matissa.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdTipoServicio"] = new SelectList(_context.TipoServicios, "IdTipoServicio", "IdTipoServicio", servicio.IdTipoServicio);
             return View(servicio);
         }
 
@@ -117,7 +113,6 @@ namespace Matissa.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdTipoServicio"] = new SelectList(_context.TipoServicios, "IdTipoServicio", "IdTipoServicio", servicio.IdTipoServicio);
             return View(servicio);
         }
 
@@ -130,7 +125,6 @@ namespace Matissa.Controllers
             }
 
             var servicio = await _context.Servicios
-                .Include(s => s.IdTipoServicioNavigation)
                 .FirstOrDefaultAsync(m => m.IdServicio == id);
             if (servicio == null)
             {

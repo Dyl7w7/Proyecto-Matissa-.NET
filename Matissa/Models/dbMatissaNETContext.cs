@@ -29,7 +29,6 @@ namespace Matissa.Models
         public virtual DbSet<Empleado> Empleados { get; set; } = null!;
         public virtual DbSet<Pedido> Pedidos { get; set; } = null!;
         public virtual DbSet<Servicio> Servicios { get; set; } = null!;
-        public virtual DbSet<TipoServicio> TipoServicios { get; set; } = null!;
         public virtual DbSet<VentaServicio> VentaServicios { get; set; } = null!;
         public virtual DbSet<Rol> Rol { get; set; }
 
@@ -445,7 +444,6 @@ namespace Matissa.Models
 
                 entity.Property(e => e.Estado).HasColumnName("estado");
 
-                entity.Property(e => e.IdTipoServicio).HasColumnName("idTipoServicio");
 
                 entity.Property(e => e.NombreServicio)
                     .HasMaxLength(50)
@@ -454,11 +452,6 @@ namespace Matissa.Models
 
                 entity.Property(e => e.Precio).HasColumnName("precio");
 
-                entity.HasOne(d => d.IdTipoServicioNavigation)
-                    .WithMany(p => p.Servicios)
-                    .HasForeignKey(d => d.IdTipoServicio)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__servicio__idTipo__4CA06362");
             });
             ///////
             ///
@@ -569,24 +562,7 @@ namespace Matissa.Models
             });
             /////______________________________________________
 
-            modelBuilder.Entity<TipoServicio>(entity =>
-            {
-                entity.HasKey(e => e.IdTipoServicio)
-                    .HasName("PK__tipoServ__278616767C8DCAAE");
 
-                entity.ToTable("tipoServicio");
-
-                entity.Property(e => e.IdTipoServicio)
-                    .ValueGeneratedNever()
-                    .HasColumnName("idTipoServicio");
-
-                entity.Property(e => e.Estado).HasColumnName("estado");
-
-                entity.Property(e => e.Nombre)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("nombre");
-            });
 
             modelBuilder.Entity<VentaServicio>(entity =>
             {

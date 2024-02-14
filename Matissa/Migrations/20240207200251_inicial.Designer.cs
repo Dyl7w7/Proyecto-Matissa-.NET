@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Matissa.Migrations
 {
     [DbContext(typeof(dbMatissaNETContext))]
-    [Migration("20231130181556_inicial")]
+    [Migration("20240207200251_inicial")]
     partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -98,6 +98,7 @@ namespace Matissa.Migrations
                         .HasColumnName("estado");
 
                     b.Property<int?>("IdRol")
+                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("idRol");
 
@@ -201,7 +202,7 @@ namespace Matissa.Migrations
                     b.ToTable("cliente", (string)null);
                 });
 
-            modelBuilder.Entity("Matissa.Models.Compra", b =>
+            modelBuilder.Entity("matissa.Models.Compra", b =>
                 {
                     b.Property<int>("IdCompra")
                         .HasColumnType("int")
@@ -296,6 +297,48 @@ namespace Matissa.Migrations
                     b.HasIndex("IdServicio");
 
                     b.ToTable("detalleCita", (string)null);
+                });
+
+            modelBuilder.Entity("matissa.Models.DetalleCompra", b =>
+                {
+                    b.Property<int>("IdDetalleCompra")
+                        .HasColumnType("int")
+                        .HasColumnName("idDetalleCompra");
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int")
+                        .HasColumnName("cantidad");
+
+                    b.Property<double>("CostoTotalUnitario")
+                        .HasColumnType("float")
+                        .HasColumnName("costoTotalUnitario");
+
+                    b.Property<int>("IdCompra")
+                        .HasColumnType("int")
+                        .HasColumnName("idCompra");
+
+                    b.Property<int>("IdProducto")
+                        .HasColumnType("int")
+                        .HasColumnName("idProducto");
+
+                    b.Property<int>("IdProveedor")
+                        .HasColumnType("int")
+                        .HasColumnName("idProveedor");
+
+                    b.Property<double>("PrecioUnitario")
+                        .HasColumnType("float")
+                        .HasColumnName("precioUnitario");
+
+                    b.HasKey("IdDetalleCompra")
+                        .HasName("PK__detalleC__62C252C1B96B1F27");
+
+                    b.HasIndex("IdCompra");
+
+                    b.HasIndex("IdProducto");
+
+                    b.HasIndex("IdProveedor");
+
+                    b.ToTable("detalleCompra", (string)null);
                 });
 
             modelBuilder.Entity("Matissa.Models.DetallePedido", b =>
@@ -426,7 +469,7 @@ namespace Matissa.Migrations
                     b.ToTable("pedido", (string)null);
                 });
 
-            modelBuilder.Entity("Matissa.Models.Producto", b =>
+            modelBuilder.Entity("matissa.Models.Producto", b =>
                 {
                     b.Property<int>("IdProducto")
                         .HasColumnType("int")
@@ -467,6 +510,57 @@ namespace Matissa.Migrations
                     b.ToTable("producto", (string)null);
                 });
 
+            modelBuilder.Entity("matissa.Models.Proveedor", b =>
+                {
+                    b.Property<int>("IdProveedor")
+                        .HasColumnType("int")
+                        .HasColumnName("idProveedor");
+
+                    b.Property<string>("Contacto")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("contacto");
+
+                    b.Property<string>("Dirección")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("dirección");
+
+                    b.Property<byte>("Estado")
+                        .HasColumnType("tinyint")
+                        .HasColumnName("estado");
+
+                    b.Property<string>("NombreProveedor")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("nombreProveedor");
+
+                    b.Property<string>("Teléfono")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("teléfono");
+
+                    b.Property<string>("TipoProveedor")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("tipoProveedor");
+
+                    b.HasKey("IdProveedor")
+                        .HasName("PK__proveedo__A3FA8E6B213E0218");
+
+                    b.ToTable("proveedor", (string)null);
+                });
+
             modelBuilder.Entity("Matissa.Models.Rol", b =>
                 {
                     b.Property<int>("IdRol")
@@ -474,6 +568,7 @@ namespace Matissa.Migrations
                         .HasColumnName("idRol");
 
                     b.Property<byte?>("Estado")
+                        .IsRequired()
                         .HasColumnType("tinyint")
                         .HasColumnName("estado");
 
@@ -510,10 +605,6 @@ namespace Matissa.Migrations
                         .HasColumnType("tinyint")
                         .HasColumnName("estado");
 
-                    b.Property<int>("IdTipoServicio")
-                        .HasColumnType("int")
-                        .HasColumnName("idTipoServicio");
-
                     b.Property<string>("NombreServicio")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -528,32 +619,7 @@ namespace Matissa.Migrations
                     b.HasKey("IdServicio")
                         .HasName("PK__servicio__CEB98119B2088B0F");
 
-                    b.HasIndex("IdTipoServicio");
-
                     b.ToTable("servicio", (string)null);
-                });
-
-            modelBuilder.Entity("Matissa.Models.TipoServicio", b =>
-                {
-                    b.Property<int>("IdTipoServicio")
-                        .HasColumnType("int")
-                        .HasColumnName("idTipoServicio");
-
-                    b.Property<byte>("Estado")
-                        .HasColumnType("tinyint")
-                        .HasColumnName("estado");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("nombre");
-
-                    b.HasKey("IdTipoServicio")
-                        .HasName("PK__tipoServ__278616767C8DCAAE");
-
-                    b.ToTable("tipoServicio", (string)null);
                 });
 
             modelBuilder.Entity("Matissa.Models.VentaServicio", b =>
@@ -562,16 +628,15 @@ namespace Matissa.Migrations
                         .HasColumnType("int")
                         .HasColumnName("idVentaServicio");
 
-                    b.Property<byte>("Estado")
+                    b.Property<byte?>("Estado")
                         .HasColumnType("tinyint")
                         .HasColumnName("estado");
 
-                    b.Property<DateTime>("FechaVenta")
+                    b.Property<DateTime?>("FechaVenta")
                         .HasColumnType("date")
                         .HasColumnName("fechaVenta");
 
                     b.Property<string>("FormaPago")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -581,7 +646,7 @@ namespace Matissa.Migrations
                         .HasColumnType("int")
                         .HasColumnName("idCita");
 
-                    b.Property<double>("ValorVenta")
+                    b.Property<double?>("ValorVenta")
                         .HasColumnType("float")
                         .HasColumnName("valorVenta");
 
@@ -617,6 +682,8 @@ namespace Matissa.Migrations
                     b.HasOne("Matissa.Models.Rol", "IdRolNavigation")
                         .WithMany("Usuarios")
                         .HasForeignKey("IdRol")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("FK__usuario__idRol__3B75D760");
 
                     b.Navigation("IdRolNavigation");
@@ -660,6 +727,33 @@ namespace Matissa.Migrations
                     b.Navigation("IdServicioNavigation");
                 });
 
+            modelBuilder.Entity("matissa.Models.DetalleCompra", b =>
+                {
+                    b.HasOne("matissa.Models.Compra", "IdCompraNavigation")
+                        .WithMany("DetalleCompras")
+                        .HasForeignKey("IdCompra")
+                        .IsRequired()
+                        .HasConstraintName("FK__detalleCo__idCom__59FA5E80");
+
+                    b.HasOne("matissa.Models.Producto", "IdProductoNavigation")
+                        .WithMany("DetalleCompras")
+                        .HasForeignKey("IdProducto")
+                        .IsRequired()
+                        .HasConstraintName("FK__detalleCo__idPro__5AEE82B9");
+
+                    b.HasOne("matissa.Models.Proveedor", "IdProveedorNavigation")
+                        .WithMany("DetalleCompras")
+                        .HasForeignKey("IdProveedor")
+                        .IsRequired()
+                        .HasConstraintName("FK__detalleCo__idPro__5BE2A6F2");
+
+                    b.Navigation("IdCompraNavigation");
+
+                    b.Navigation("IdProductoNavigation");
+
+                    b.Navigation("IdProveedorNavigation");
+                });
+
             modelBuilder.Entity("Matissa.Models.DetallePedido", b =>
                 {
                     b.HasOne("Matissa.Models.Pedido", "IdPedidoNavigation")
@@ -668,7 +762,7 @@ namespace Matissa.Migrations
                         .IsRequired()
                         .HasConstraintName("FK__detallePe__idPed__628FA481");
 
-                    b.HasOne("Matissa.Models.Producto", "IdProductoNavigation")
+                    b.HasOne("matissa.Models.Producto", "IdProductoNavigation")
                         .WithMany("DetallePedidos")
                         .HasForeignKey("IdProducto")
                         .IsRequired()
@@ -688,17 +782,6 @@ namespace Matissa.Migrations
                         .HasConstraintName("FK__pedido__idClient__5EBF139D");
 
                     b.Navigation("IdClienteNavigation");
-                });
-
-            modelBuilder.Entity("Matissa.Models.Servicio", b =>
-                {
-                    b.HasOne("Matissa.Models.TipoServicio", "IdTipoServicioNavigation")
-                        .WithMany("Servicios")
-                        .HasForeignKey("IdTipoServicio")
-                        .IsRequired()
-                        .HasConstraintName("FK__servicio__idTipo__4CA06362");
-
-                    b.Navigation("IdTipoServicioNavigation");
                 });
 
             modelBuilder.Entity("Matissa.Models.VentaServicio", b =>
@@ -731,6 +814,11 @@ namespace Matissa.Migrations
                     b.Navigation("Pedidos");
                 });
 
+            modelBuilder.Entity("matissa.Models.Compra", b =>
+                {
+                    b.Navigation("DetalleCompras");
+                });
+
             modelBuilder.Entity("Matissa.Models.Empleado", b =>
                 {
                     b.Navigation("DetalleCita");
@@ -741,9 +829,16 @@ namespace Matissa.Migrations
                     b.Navigation("DetallePedidos");
                 });
 
-            modelBuilder.Entity("Matissa.Models.Producto", b =>
+            modelBuilder.Entity("matissa.Models.Producto", b =>
                 {
+                    b.Navigation("DetalleCompras");
+
                     b.Navigation("DetallePedidos");
+                });
+
+            modelBuilder.Entity("matissa.Models.Proveedor", b =>
+                {
+                    b.Navigation("DetalleCompras");
                 });
 
             modelBuilder.Entity("Matissa.Models.Rol", b =>
@@ -756,11 +851,6 @@ namespace Matissa.Migrations
             modelBuilder.Entity("Matissa.Models.Servicio", b =>
                 {
                     b.Navigation("DetalleCita");
-                });
-
-            modelBuilder.Entity("Matissa.Models.TipoServicio", b =>
-                {
-                    b.Navigation("Servicios");
                 });
 #pragma warning restore 612, 618
         }
