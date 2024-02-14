@@ -38,7 +38,7 @@
         </div>
     </div>
 </div>
-<div class="container p-5 container-tabla">
+<div class="container p-3 container-tabla">
     <div class="row">
         <div class="col">
             <table class="tabla text-center">
@@ -86,7 +86,7 @@
                             <td>
                                 @item.Factura
                             </td>
-                                <td>@((item.Estado == 0)? "Anulado": "Activado")</td>
+                            <td>@((item.Estado == 0) ? "Anulado" : "Activado")</td>
                             <td>
                                 <a asp-action="Index" asp-controller="DetalleCompras" class="m-2" asp-route-id="@item.IdCompra"><i class="fa-solid fa-eye" style="color: #3cc3bf;"></i></a>
                                 <a asp-action="Anular" class="m-2 @((item.Estado == 0)? "d-none": "")" asp-route-id="@item.IdCompra"><i class="fa-solid fa-xmark" style="color: #3cc3bd;"></i></a>
@@ -114,3 +114,4 @@
         </nav>
     </div>
 }
+__________________
