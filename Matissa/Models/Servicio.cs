@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Matissa.Models
 {
@@ -9,19 +7,18 @@ namespace Matissa.Models
     {
         public Servicio()
         {
-            DetalleCita = new HashSet<DetalleCitum>();
+            Detallecita = new HashSet<Detallecitum>();
         }
 
-        
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
         public int IdServicio { get; set; }
+        public int IdEmpleado { get; set; }
         public string NombreServicio { get; set; } = null!;
-        public string? Descripción { get; set; }
-        public int Duración { get; set; }
-        public double Precio { get; set; }
-        public byte Estado { get; set; }
+        public string? Descripcion { get; set; }
+        public int Duracion { get; set; }
+        public float Precio { get; set; }
+        public sbyte Estado { get; set; }
 
-        public virtual ICollection<DetalleCitum> DetalleCita { get; set; }
+        public virtual Empleado IdEmpleadoNavigation { get; set; } = null!;
+        public virtual ICollection<Detallecitum> Detallecita { get; set; }
     }
 }

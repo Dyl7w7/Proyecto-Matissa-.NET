@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Matissa.Model
+namespace Matissa.Models
 {
     public partial class Permiso
     {
         public Permiso()
         {
-            RolXpermisos = new HashSet<RolXpermiso>();
+            Rolxpermisos = new HashSet<Rolxpermiso>();
         }
 
         public int IdPermiso { get; set; }
         public string Modulo { get; set; } = null!;
-        public string? Descripción { get; set; }
+        public string? Descripcion { get; set; }
 
-        public virtual ICollection<RolXpermiso> RolXpermisos { get; set; }
+        public virtual ICollection<Rolxpermiso> Rolxpermisos { get; set; }
     }
 }

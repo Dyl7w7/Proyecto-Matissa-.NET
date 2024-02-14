@@ -1,26 +1,25 @@
-﻿using Matissa.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace matissa.Models
+namespace Matissa.Models
 {
     public partial class Producto
     {
         public Producto()
         {
-            DetalleCompras = new HashSet<DetalleCompra>();
-            DetallePedidos = new HashSet<DetallePedido>();
+            Detallecompras = new HashSet<Detallecompra>();
+            Detallepedidos = new HashSet<Detallepedido>();
         }
 
         public int IdProducto { get; set; }
         public string NombreProducto { get; set; } = null!;
-        public string? Descripción { get; set; }
-        public DateTime FechaCaducidad { get; set; }
-        public double PrecioVenta { get; set; }
+        public string? Descripcion { get; set; }
+        public DateOnly FechaCaducidad { get; set; }
+        public float PrecioVenta { get; set; }
         public int SaldoInventario { get; set; }
-        public byte Estado { get; set; }
+        public sbyte Estado { get; set; }
 
-        public virtual ICollection<DetalleCompra> DetalleCompras { get; set; }
-        public virtual ICollection<DetallePedido> DetallePedidos { get; set; }
+        public virtual ICollection<Detallecompra> Detallecompras { get; set; }
+        public virtual ICollection<Detallepedido> Detallepedidos { get; set; }
     }
 }

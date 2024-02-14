@@ -7,20 +7,20 @@ namespace Matissa.Models
     {
         public Empleado()
         {
-            DetalleCita = new HashSet<DetalleCitum>();
+            Servicios = new HashSet<Servicio>();
         }
 
         public int IdEmpleado { get; set; }
         public string NombreEmpleado { get; set; } = null!;
         public string ApellidoEmpleado { get; set; } = null!;
         public string Genero { get; set; } = null!;
-        public DateTime FechaContrato { get; set; }
-        public DateTime FechaNacimiento { get; set; }
+        public DateOnly FechaContrato { get; set; }
+        public DateOnly FechaNacimiento { get; set; }
         public string Correo { get; set; } = null!;
-        public string Dirección { get; set; } = null!;
-        public string Teléfono { get; set; } = null!;
-        public byte Estado { get; set; }
+        public string Direccion { get; set; } = null!;
+        public string Telefono { get; set; } = null!;
+        public sbyte Estado { get; set; }
 
-        public virtual ICollection<DetalleCitum> DetalleCita { get; set; }
+        public virtual ICollection<Servicio> Servicios { get; set; }
     }
 }
