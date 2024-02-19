@@ -1,15 +1,15 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 
-.texto-merienda{
+.texto-merienda {
     font-family: "Merienda";
 }
 
-.texto-quicksand{
+.texto-quicksand {
     font-family: "Quicksand";
 }
 
-body{
+body {
     margin: 0;
 }
 
@@ -19,8 +19,8 @@ body{
     font-family: "Merienda";
     text-align: center;
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 1%;
+    /*padding-bottom: 20px;*/
     margin-bottom: 1%;
     border: 1px solid gray;
 }
@@ -31,8 +31,9 @@ body{
     font-family: "Merienda";
     text-align: center;
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 1%;
+    /*padding-bottom: 20px;*/
+    margin-bottom: 1%;
     border: 1px solid gray;
 }
 
@@ -45,32 +46,32 @@ body{
     font-family: 'Quicksand';
 }
 
-.form-agregar-proveedor label {
-    margin-top: 10px;
-}
+    .form-agregar-proveedor label {
+        margin-top: 10px;
+    }
 
-.form-agregar-proveedor input {
-    margin-bottom: 20px;
-    margin-top: 10px;
-    border: 1px solid black;
-    text-align: center;
-}
+    .form-agregar-proveedor input {
+        margin-bottom: 20px;
+        margin-top: 10px;
+        border: 1px solid black;
+        text-align: center;
+    }
 
-.form-agregar-proveedor textarea {
-    margin-bottom: 15px;
-    margin-top: 10px;
-    border-radius: 15px;
-    border: 1px solid black;
-}
+    .form-agregar-proveedor textarea {
+        margin-bottom: 15px;
+        margin-top: 10px;
+        border-radius: 15px;
+        border: 1px solid black;
+    }
 
-.form-agregar-proveedor select {
-    margin-bottom: 15px;
-    margin-top: 10px;
-    width: 180px;
-    height: 25px;
-    border: 1px solid black;
-    text-align: center;
-}
+    .form-agregar-proveedor select {
+        margin-bottom: 15px;
+        margin-top: 10px;
+        width: 180px;
+        height: 25px;
+        border: 1px solid black;
+        text-align: center;
+    }
 
 .botones {
     margin-bottom: 2.5%;
@@ -171,13 +172,13 @@ reporte-crear:hover {
     border: 1px solid black;
 }
 
-.h100{
+.h100 {
     height: 100%;
 }
 
 /* Estilos tabla */
 
-.container-tabla{
+.container-tabla {
     overflow-x: auto;
 }
 
@@ -189,20 +190,20 @@ reporte-crear:hover {
     margin-top: 1vh;
 }
 
-.tabla tr:hover {
-    background-color: rgb(218, 217, 217);
-}
+    .tabla tr:hover {
+        background-color: rgb(218, 217, 217);
+    }
 
-.tabla th {
-    border: 1px solid #161616;
-    background-color: #e5e5e5;
-    padding: 17px;
-}
+    .tabla th {
+        border: 1px solid #161616;
+        background-color: #e5e5e5;
+        padding: 17px;
+    }
 
-.tabla td {
-    border: 1px solid black;
-    padding: 5px;
-}
+    .tabla td {
+        border: 1px solid black;
+        padding: 5px;
+    }
 
 .iconos {
     color: #3cc3bd;
@@ -230,15 +231,15 @@ reporte-crear:hover {
     text-decoration: none;
 }
 
-.boton-cancelar:hover{
-    color: #232323;
-    text-decoration: none;
-}
+    .boton-cancelar:hover {
+        color: #232323;
+        text-decoration: none;
+    }
 
-.boton-cancelar:active {
-    transform: scale(0.9);
-    transition: transform 0.1s ease;
-}
+    .boton-cancelar:active {
+        transform: scale(0.9);
+        transition: transform 0.1s ease;
+    }
 
 .boton-aceptar {
     padding: 5px 20px 5px 20px;
@@ -251,10 +252,10 @@ reporte-crear:hover {
     font-weight: bold;
 }
 
-.boton-aceptar:active {
-    transform: scale(0.9);
-    transition: transform 0.1s ease;
-}
+    .boton-aceptar:active {
+        transform: scale(0.9);
+        transition: transform 0.1s ease;
+    }
 
 .boton-agregar {
     padding: 5px 20px 5px 20px;
@@ -268,10 +269,10 @@ reporte-crear:hover {
     text-decoration: none;
 }
 
-.boton-agregar:active {
-    transform: scale(0.9);
-    transition: transform 0.1s ease;
-}
+    .boton-agregar:active {
+        transform: scale(0.9);
+        transition: transform 0.1s ease;
+    }
 
 .icono-basura {
     color: ##3cc3bd;

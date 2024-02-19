@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Matissa.Models;
 
-namespace Matissa.Model
+namespace Matissa.Models
 {
-    public partial class RolXpermiso
+    public partial class Rolxpermiso
     {
         public int IdRolXpermiso { get; set; }
         public int IdRol { get; set; }

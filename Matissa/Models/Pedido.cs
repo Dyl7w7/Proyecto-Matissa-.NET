@@ -7,16 +7,16 @@ namespace Matissa.Models
     {
         public Pedido()
         {
-            DetallePedidos = new HashSet<DetallePedido>();
+            Detallepedidos = new HashSet<Detallepedido>();
         }
 
         public int IdPedido { get; set; }
         public int IdCliente { get; set; }
-        public DateTime FechaPedido { get; set; }
-        public double PrecioTotalPedido { get; set; }
-        public byte Estado { get; set; }
+        public DateOnly FechaPedido { get; set; }
+        public float PrecioTotalPedido { get; set; }
+        public sbyte Estado { get; set; }
 
-        public virtual Cliente? IdClienteNavigation { get; set; }
-        public virtual ICollection<DetallePedido> DetallePedidos { get; set; }
+        public virtual Cliente IdClienteNavigation { get; set; } = null!;
+        public virtual ICollection<Detallepedido> Detallepedidos { get; set; }
     }
 }

@@ -10,62 +10,75 @@
 <div class="container-fluid titulo-roles">
     <div class="row">
         <div class="col-6 mx-auto">
-            <h1 class="">Editar Usuario</h1>
+            <h1 class="">Crear Usuario</h1>
         </div>
     </div>
 </div>
-<div class="container-fluid text-center">
-    <div class="col-6 mx-auto text-left text-center">
-        <form asp-action="Create" class="mt-5">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <strong>
-                <label asp-for="IdUsuario" class="control-label"></label>
-                <input asp-for="IdUsuario" class="form-control" />
-                <span asp-validation-for="IdUsuario" class="text-danger"></span>
-                </strong>
+<div class="col text-center p-3 texto-quicksand">
+    <form asp-action="Create" class="mt-5">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <strong>
+                        <label asp-for="IdUsuario" class="control-label"></label>
+                        <input asp-for="IdUsuario" class="form-control rounded-pill" />
+                        <span asp-validation-for="IdUsuario" class="text-danger"></span>
+                    </strong>
+                </div>
             </div>
-            <div class="form-group">
-                <strong>
-                <label asp-for="NombreUsuario" class="control-label"></label>
-                <input asp-for="NombreUsuario" class="form-control" />
-                <span asp-validation-for="NombreUsuario" class="text-danger"></span>
-                </strong>
+            <div class="col">
+                <div class="form-group">
+                    <strong>
+                        <label asp-for="NombreUsuario" class="control-label"></label>
+                        <input asp-for="NombreUsuario" class="form-control rounded-pill" />
+                        <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                    </strong>
+                </div>
             </div>
-            <div class="form-group">
-                <strong>
-                <label asp-for="Correo" class="control-label"></label>
-                <input asp-for="Correo" class="form-control" />
-                <span asp-validation-for="Correo" class="text-danger"></span>
-                </strong>
+            <div class="col">
+                <div class="form-group">
+                    <strong>
+                        <label asp-for="Correo" class="control-label"></label>
+                        <input asp-for="Correo" class="form-control rounded-pill" />
+                        <span asp-validation-for="Correo" class="text-danger"></span>
+                    </strong>
+                </div>
             </div>
-            <div class="form-group">
-                <strong>
-                <label asp-for="Contraseña" class="control-label"></label>
-                <input asp-for="Contraseña" class="form-control" />
-                <span asp-validation-for="Contraseña" class="text-danger"></span>
-                </strong>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <strong>
+                            <label asp-for="Contraseña" class="control-label"></label>
+                            <input asp-for="Contraseña" class="form-control rounded-pill" />
+                            <span asp-validation-for="Contraseña" class="text-danger"></span>
+                        </strong>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <strong>
+                            <label asp-for="Estado" class="control-label"></label>
+                            <input asp-for="Estado" class="form-control rounded-pill" />
+                            <span asp-validation-for="Estado" class="text-danger"></span>
+                        </strong>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <strong>
+                            <label asp-for="IdRol" class="control-label"></label>
+                            <select asp-for="IdRol" class="form-control rounded-pill" asp-items="ViewBag.IdRol"></select>
+                        </strong>
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <a asp-action="Index">
+                        <input type="button" class="btn cancel-btn rounded-pill" value="Cancelar" />
+                        <input type="submit" value="Guardar" class="btn acept-btn rounded-pill" />
+                    </a>
+                </div>
             </div>
-            <div class="form-group">
-                <strong>
-                <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" />
-                <span asp-validation-for="Estado" class="text-danger"></span>
-                </strong>
-            </div>
-            <div class="form-group">
-                <strong>
-                <label asp-for="IdRol" class="control-label"></label>
-                <select asp-for="IdRol" class="form-control" asp-items="ViewBag.IdRol"></select>
-                </strong>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div class="mx-auto text-center">
-    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+        </div>
+    </form>
 </div>

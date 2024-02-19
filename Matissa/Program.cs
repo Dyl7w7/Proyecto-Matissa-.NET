@@ -1,29 +1,26 @@
-using Matissa.Models;
+//using Matissa.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<dbMatissaNETContext>(options =>
-       options.UseSqlServer(builder.Configuration.GetConnectionString("Connection")));
+//builder.Services.AddDbContext<dbMatissaNETContext>(options =>
+//options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
 
 // Agrega los servicios de autenticación y configura la autenticación basada en cookies
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-  .AddCookie(options =>
-  {
-      options.LoginPath = "/Acceso/login";
-      options.LogoutPath = "/Acceso/Logout";
-  });
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Acceso/login";
+        options.LogoutPath = "/Acceso/Logout";
+    });
 
 // Define la política de autorización "Configuracion"
-//builder.Services.AddAuthorization(options =>
-//{
-//    options.AddPolicy("Configuracion", policy => policy.RequireClaim("Permisos", "Configuracion"));
-//});
+// builder.Services.AddAuthorization(options =>
+// {
+//     options.AddPolicy("Configuracion", policy => policy.RequireClaim("Permisos", "Configuracion"));
+// });
 
 var app = builder.Build();
 
@@ -44,8 +41,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-
-//app.MapControllerRoute(
+// app.MapControllerRoute(
 //   name: "default",
 //   pattern: "{controller=Home}/{action=Index}/{id?}");
 app.UseEndpoints(endpoints =>
